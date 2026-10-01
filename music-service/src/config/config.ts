@@ -1,0 +1,15 @@
+import { env } from './env';
+
+const config = {
+  ENV: env.nodeEnv,
+  SERVICE_NAME: env.serviceName,
+  IDEMPOTENCY_TTL_SECONDS: Number(process.env.IDEMPOTENCY_TTL_SECONDS ?? 1800),
+  SHUTDOWN_FORCE_EXIT_MS: Number(process.env.SHUTDOWN_FORCE_EXIT_MS ?? 30000),
+  SHUTDOWN_ENDPOINT_PROPAGATION_MS: Number(process.env.SHUTDOWN_ENDPOINT_PROPAGATION_MS ?? 1000),
+  SHUTDOWN_HTTP_DRAIN_GRACE_MS: Number(process.env.SHUTDOWN_HTTP_DRAIN_GRACE_MS ?? 10000),
+  SHUTDOWN_INGRESS_STEP_TIMEOUT_MS: Number(process.env.SHUTDOWN_INGRESS_STEP_TIMEOUT_MS ?? 15000),
+  SHUTDOWN_RESOURCE_CLOSE_TIMEOUT_MS: Number(process.env.SHUTDOWN_RESOURCE_CLOSE_TIMEOUT_MS ?? 10000),
+  RABBITMQ_URI: env.rabbitmqUrl,
+};
+
+export default config;
